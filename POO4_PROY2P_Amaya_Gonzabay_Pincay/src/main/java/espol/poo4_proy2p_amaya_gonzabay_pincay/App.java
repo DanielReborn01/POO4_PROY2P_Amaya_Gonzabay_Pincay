@@ -1,4 +1,4 @@
-package com.mycompany.proyecto2;
+package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,18 +17,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/login" + ".fxml"));
+        Parent root = fxmlLoader.load();
+        scene = new Scene(root, 750, 480);
         stage.setScene(scene);
         stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
     }
 
     public static void main(String[] args) {
