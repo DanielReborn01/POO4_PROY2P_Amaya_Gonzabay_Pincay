@@ -2,7 +2,54 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400;700&display=swap');
 
-    -fx-background-color: blue;
+.mainFxmlClass {
+    -fx-background-image: url('../Imagenes/background.png');
+    -fx-background-size: 1750 1400;
+    -fx-background-repeat: no-repeat;
+    
+    -fx-effect: innershadow(gaussian, white, 1, 0.3, 0, 3); 
+    
+    
+}
+.labelTitulo{
+    -fx-font-family: 'Handjet', cursive;
+}
+.txtUsuario{
+    -fx-background-color: rgba(255,255,255,0.7);
+    -fx-border-width:  0 0 1 0;
+    -fx-padding: 10 5 10 5;
+}
+
+.txtUsuario:pressed{
+    -fx-background-color: rgba(255,255,255,0.9);
+}
+
+.txtPass{
+    -fx-background-color: rgba(255,255,255,0.7);
+    -fx-border-width:  0 0 1 0;
+    -fx-padding: 10 5 10 5;
+}
+
+.btnLogin{
+    -fx-background-color: #ffa931;
+    -fx-font-weight: bold;
+    -fx-font-size: 17;
+    -fx-text-fill: white;
+    -fx-padding: 10 5 10 5;
+     -fx-font-family: "'Handjet', cursive";
+     
+}
+
+.btnLogin:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+    -fx-transition: fx-scale-x 2s ease, fx-scale-x 2s ease;
+    
+}
+
+.imLogo:hover{
+    -fx-rotate: 90;
 }
