@@ -1,5 +1,8 @@
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Usuario;
+import Utilidades.Utilidades;
+
 import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +11,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * JavaFX App
@@ -16,12 +22,29 @@ import javafx.scene.image.Image;
 public class App extends Application {
 
     private static Scene scene;
-    public final String pathImage = "src/main/resources/Imagenes/" ;
+    private static Stage stagePrincipal;
     
+    public final String pathImage = "src/main/resources/Imagenes/" ; 
     public static Format tam = Format.MEDIANO;
+    public static ArrayList<Usuario> usuarios = new ArrayList<>();
+
+    @Override
+    public void init() throws Exception {
+        super.init();
+        
+        //Se cargaran todos los datos
+        ArrayList<String[]> dataUsuario = Utilidades.LeerValidando("usuarios.txt", false);
+        for (String[] dataUser : dataUsuario) {
+            usuarios.add(new Usuario(dataUser[0], dataUser[1], dataUser[2]));
+        }
+    }
     
+    
+   
+   
     @Override
     public void start(Stage stage) throws IOException {
+        stagePrincipal = stage; //Se copia la direccion de memoria
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/login" + ".fxml"));
         Parent root = fxmlLoader.load();
         scene = new Scene(root, 750, 480);
@@ -49,9 +72,24 @@ public class App extends Application {
         stage.getIcons().add(new Image(new FileInputStream(pathImage+"logo.png")));
         stage.show();
     }
+    
+    /**
+     * Cuando se requiera cambiar la scene del stage principal
+     * 
+     * @param scene Nueva Scena a mostrar
+     */
+    public static void changeScene(Scene newScene){
+        double ancho = stagePrincipal.getScene().getWidth();
+        double alto = stagePrincipal.getScene().getHeight();
+        stagePrincipal.setScene(newScene);
+        stagePrincipal.setWidth(ancho);
+        stagePrincipal.setHeight(alto);
+    }
+    
 
     public static void main(String[] args) {
         launch();
+        
     }
 
 }

@@ -4,9 +4,19 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Usuario;
+import Utilidades.Utilidades;
+
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -14,13 +24,64 @@ import javafx.fxml.Initializable;
  * @author Walter G
  */
 public class LoginController implements Initializable {
-
+    
+    @FXML
+    private Button btnLogin;
+    
+    @FXML
+    private TextField txUser;
+    
+    @FXML
+    private TextField txPassw;
+    
+    @FXML
+    private Label lbMessage;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        //Se capturara el evento del boton
+        btnLogin.addEventHandler(ActionEvent.ACTION, (t) -> {
+            
+            String correo = txUser.getText();
+            String password = txPassw.getText();
+            login(correo, password);
+            //App.changeScene(new Scene(new VBox(new Label("Hola"))));
+        });
+        
+        
+    } 
     
+    /**
+     * Encargado de poder iniciar sesion
+     * @param correo Correo del Usuario
+     * @param password Constraseña del usuario
+     */
+    private void login(String correo, String password){
+        Usuario user = new Usuario(correo, password);
+        int indice = App.usuarios.indexOf(user); 
+        if(indice == -1){
+            Utilidades.animateStyle(txUser, "txt-error", 2000);
+            lbMessage.setText("No se pudo encontrar el usuario");
+            return;
+        }
+        if(!App.usuarios.get(indice).getPassword().equals(password)){
+            Utilidades.animateStyle(txPassw, "txt-error", 2000);
+            Utilidades.animateStyle(txUser, "txt-error", 2000);
+            lbMessage.setText("No se pudo validar sus credenciales");
+            return;
+        }
+        
+        //Esta seccion entrara solo el usuario loguiado
+        //Se puede simular la ventana de carga para mas realismo 
+        //ya que el efecto sera inmediato
+        lbMessage.setText("");
+        System.out.println("Usuario Loguiado");
+        
+    }
+    
+        
+        
 }
