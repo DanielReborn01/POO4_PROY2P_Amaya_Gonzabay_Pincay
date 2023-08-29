@@ -31,6 +31,17 @@
     -fx-border-width:  0 0 1 0;
     -fx-padding: 10 5 10 5;
 }
+.txmessage{
+    -fx-font-family: 'Handjet', cursive;
+    -fx-font-size: 22;
+    -fx-font-weight: bold; 
+    -fx-text-fill: rgba(255, 34, 34, 0.7);
+}
+.txt-error{
+    -fx-background-color: rgba(255, 34, 34, 0.7);
+    -fx-border-width: 1 1 1 1;
+    -fx-text-fill: white;
+}
 
 .btnLogin{
     -fx-background-color: #ffa931;
@@ -41,6 +52,7 @@
      -fx-font-family: "'Handjet', cursive";
      
 }
+
 
 .btnLogin:hover{
     -fx-scale-x: 1.05;
