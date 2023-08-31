@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" />
+<VBox maxHeight="-Infinity" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.SaboresHeladoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="46.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets top="-8.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="25.0" prefWidth="600.0">
+         <children>
+            <Label text="Paso 2: Elige el sabor de helado">
+               <font>
+                  <Font name="System Italic" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </Label>
+         </children></HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="18.0" prefWidth="600.0">
+         <children>
+            <Label text="Sabor 1">
+               <HBox.margin>
+                  <Insets left="60.0" right="60.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label text="Sabor 2">
+               <HBox.margin>
+                  <Insets left="60.0" right="60.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children></HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="98.0" prefWidth="600.0">
+         <children>
+            <ComboBox fx:id="cbSabor1" prefWidth="150.0">
+               <HBox.margin>
+                  <Insets right="60.0" />
+               </HBox.margin>
+            </ComboBox>
+            <ComboBox fx:id="cbSabor2" prefWidth="150.0" />
+         </children></HBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="182.0" prefWidth="600.0">
+         <children>
+            <Label text="Valor a pagar: ">
+               <HBox.margin>
+                  <Insets bottom="40.0" right="300.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Continuar">
+               <HBox.margin>
+                  <Insets bottom="40.0" />
+               </HBox.margin>
+            </Button>
+         </children></HBox>
+   </children>
+</VBox>

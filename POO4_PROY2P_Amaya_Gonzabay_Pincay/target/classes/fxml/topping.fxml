@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.ToppingController">
+   <children>
+      <HBox prefHeight="33.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <VBox.margin>
+            <Insets top="-8.0" />
+         </VBox.margin></HBox>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label text="Paso 3: Elige los toppings">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="60.0" />
+               </VBox.margin>
+            </Label>
+            <CheckBox fx:id="chkGChoco" mnemonicParsing="false" text="Grageas de chocolate - 0.50">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkGcaramelo" mnemonicParsing="false" text="Grageas de caramelo - 0.50">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkSManjar" mnemonicParsing="false" text="Sirope de manjar - 0.80">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkSFresa" mnemonicParsing="false" text="Sirope de fresa - 0.90">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkSChoco" mnemonicParsing="false" text="Sirope de chocolate - 0.80">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="chkGalletaOreo" mnemonicParsing="false" text="Galleta oreo 0.40">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" top="10.0" />
+               </VBox.margin>
+            </CheckBox>
+         </children>
+      </VBox>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label text="Valor a pagar: ">
+               <HBox.margin>
+                  <Insets bottom="30.0" left="100.0" right="100.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
+               <HBox.margin>
+                  <Insets bottom="30.0" left="100.0" right="100.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

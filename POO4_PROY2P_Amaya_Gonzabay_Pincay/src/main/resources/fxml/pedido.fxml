@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.PedidoController">
+   <children>
+      <HBox prefHeight="32.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Imagenes/borde.png" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets top="-8.0" />
+         </VBox.margin>
+      </HBox>
+      <Label text="Tu pedido">
+         <VBox.margin>
+            <Insets left="60.0" />
+         </VBox.margin>
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="250.0" prefWidth="600.0">
+         <children>
+            <ListView prefHeight="200.0" prefWidth="200.0">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+            </ListView>
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Eliminar">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="231.0" prefWidth="600.0">
+         <children>
+            <Label text="Valor a pagar: ">
+               <HBox.margin>
+                  <Insets bottom="30.0" left="60.0" right="200.0" />
+               </HBox.margin>
+            </Label>
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Confirmar">
+               <HBox.margin>
+                  <Insets bottom="30.0" right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Cancelar">
+               <HBox.margin>
+                  <Insets bottom="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
