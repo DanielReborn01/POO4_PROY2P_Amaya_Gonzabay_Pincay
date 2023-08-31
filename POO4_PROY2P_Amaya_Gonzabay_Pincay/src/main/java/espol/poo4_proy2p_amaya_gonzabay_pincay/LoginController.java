@@ -6,17 +6,21 @@ package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.Usuario;
 import Utilidades.Utilidades;
+import java.io.IOException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -78,8 +82,25 @@ public class LoginController implements Initializable {
         //Se puede simular la ventana de carga para mas realismo 
         //ya que el efecto sera inmediato
         lbMessage.setText("");
-        System.out.println("Usuario Loguiado");
+    
+        //Mostrando la ventana
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/bienvenida" + ".fxml"));
+        Parent root;
+        try {
+            root = fxmlLoader.load();
+            App.changeScene(root);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        makeNewWindow();
         
+    }
+    
+    private void makeNewWindow(){
+        Stage stagePedidos = new Stage();
+        Scene scena = new Scene(new HBox(),350,250);
+        stagePedidos.setScene(scena);
+        stagePedidos.show();
     }
     
         

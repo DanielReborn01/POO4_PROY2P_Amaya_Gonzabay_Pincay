@@ -12,9 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * JavaFX App
@@ -25,6 +23,8 @@ public class App extends Application {
     private static Stage stagePrincipal;
     
     public final String pathImage = "src/main/resources/Imagenes/" ; 
+    public final String pathData = "src/main/resources/Data/";
+    
     public static Format tam = Format.MEDIANO;
     public static ArrayList<Usuario> usuarios = new ArrayList<>();
 
@@ -33,7 +33,7 @@ public class App extends Application {
         super.init();
         
         //Se cargaran todos los datos
-        ArrayList<String[]> dataUsuario = Utilidades.LeerValidando("usuarios.txt", false);
+        ArrayList<String[]> dataUsuario = Utilidades.LeerValidando(pathData + "usuarios.txt", false);
         for (String[] dataUser : dataUsuario) {
             usuarios.add(new Usuario(dataUser[0], dataUser[1], dataUser[2]));
         }
@@ -76,14 +76,14 @@ public class App extends Application {
     /**
      * Cuando se requiera cambiar la scene del stage principal
      * 
-     * @param scene Nueva Scena a mostrar
+     * @param root
      */
-    public static void changeScene(Scene newScene){
+    public static void changeScene(Parent root){
         double ancho = stagePrincipal.getScene().getWidth();
         double alto = stagePrincipal.getScene().getHeight();
-        stagePrincipal.setScene(newScene);
-        stagePrincipal.setWidth(ancho);
-        stagePrincipal.setHeight(alto);
+        
+        stagePrincipal.setScene(new Scene(root, ancho,alto));
+        
     }
     
 
