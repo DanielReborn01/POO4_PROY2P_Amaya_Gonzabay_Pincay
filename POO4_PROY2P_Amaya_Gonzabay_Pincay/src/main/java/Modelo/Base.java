@@ -7,6 +7,7 @@ package Modelo;
 import Utilidades.Utilidades;
 import espol.poo4_proy2p_amaya_gonzabay_pincay.App;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
@@ -25,6 +26,16 @@ public class Base {
         this.precio = precio;
     }
 
+    
+    
+    public static Base FindBase(ArrayList<Base> bases, String sabor){
+        for (Base base : bases) {
+            if(base.getSabor().equals(sabor)){
+                return base;
+            }
+        }
+        return null;
+    }
     
     /**
      * Obtiene las bases de los arhcivos y devuelve una estructura de datos
@@ -61,6 +72,22 @@ public class Base {
     @Override
     public String toString() {
         return sabor + "," + precio;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Base other = (Base) obj;
+        return sabor.equals(other.getSabor());
     }
     
     

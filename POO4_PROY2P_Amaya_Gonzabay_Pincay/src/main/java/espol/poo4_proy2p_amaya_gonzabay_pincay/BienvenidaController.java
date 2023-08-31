@@ -27,6 +27,8 @@ public class BienvenidaController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    public static Stage stagePedidos;
+    
     @FXML
     private Button btnLocales;
 
@@ -61,7 +63,7 @@ public class BienvenidaController implements Initializable {
      * Se encarara de crear la ventana donde se podra realizar el pedido
      */
     private void makeWindowPedidos() throws IOException {
-        Stage stagePedidos = new Stage();
+        stagePedidos = new Stage();
         Parent rootPedidos = FXMLLoader.load(App.class.getResource("/fxml/baseHelado" + ".fxml"));
         
         Scene scene = new Scene(rootPedidos);

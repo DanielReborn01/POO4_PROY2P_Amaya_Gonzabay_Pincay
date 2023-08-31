@@ -47,7 +47,7 @@
       <HBox fx:id="hbBases" alignment="TOP_CENTER" prefHeight="133.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox layoutX="10.0" layoutY="327.0" prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Label text="Valor a pagar: ">
+            <Label fx:id="lblPrecio" text="Valor a pagar: ">
                <font>
                   <Font name="System Italic" size="14.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Insets left="60.0" top="20.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
+            <Button fx:id="btnNextBase" mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
                <HBox.margin>
                   <Insets left="300.0" top="20.0" />
                </HBox.margin>

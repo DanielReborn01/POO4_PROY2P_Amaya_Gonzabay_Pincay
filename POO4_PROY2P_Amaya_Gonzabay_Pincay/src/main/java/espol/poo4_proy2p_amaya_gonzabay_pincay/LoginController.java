@@ -82,7 +82,10 @@ public class LoginController implements Initializable {
         //Se puede simular la ventana de carga para mas realismo 
         //ya que el efecto sera inmediato
         lbMessage.setText("");
-    
+        
+        //Agregando el usuasrio al pedido
+        App.heladoPedido.setUsuario(App.usuarios.get(indice));
+        
         //Mostrando la ventana
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/bienvenida" + ".fxml"));
         Parent root;

@@ -1,6 +1,7 @@
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.Base;
+import Modelo.Helado;
 import Modelo.Usuario;
 import Utilidades.Utilidades;
 
@@ -25,6 +26,7 @@ public class App extends Application {
     
     public static String pathImage = "src/main/resources/Imagenes/" ; 
     public static String pathData = "src/main/resources/Data/";
+    public static Helado heladoPedido = new Helado();
     
     public static Format tam = Format.MEDIANO;
     public static ArrayList<Usuario> usuarios = new ArrayList<>();
