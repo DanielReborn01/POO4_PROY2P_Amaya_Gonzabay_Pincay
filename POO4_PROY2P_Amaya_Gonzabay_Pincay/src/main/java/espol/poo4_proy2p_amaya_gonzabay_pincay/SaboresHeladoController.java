@@ -4,9 +4,15 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Sabor;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -18,9 +24,58 @@ public class SaboresHeladoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    
+    @FXML
+    private Label lblPagarSabores;
+    
+    @FXML 
+    private ComboBox cbSabor1;
+    
+    @FXML 
+    private ComboBox cbSabor2;
+    
+    private ArrayList<Sabor> sabores = App.sabores; //Copia de la direccion de memoria
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        System.out.println(App.heladoPedido);
+        //Colocamos el precio actual del pedido
+        lblPagarSabores.setText("Valor a pagar: " + Double.toString(App.heladoPedido.getPrecio()));
+        
+        cbSabor2.getItems().add("Ninguno");
+        //Agregamos elementos al comboBox
+        for (Sabor sabor : sabores) {
+            cbSabor1.getItems().add(sabor);
+            cbSabor2.getItems().add(sabor);
+        }
+        
+        cbSabor1.addEventHandler(ActionEvent.ACTION, e->{
+            choiceSabor(cbSabor1);
+        });
+        cbSabor2.addEventHandler(ActionEvent.ACTION, e->{
+            choiceSabor(cbSabor2);
+        });
+        
     }    
     
+    private void choiceSabor(ComboBox combo){
+        
+        String sabor = combo.getSelectionModel().getSelectedItem().toString().split(" - ")[0];
+        Sabor sab = Sabor.FindSabor(sabores, sabor);
+        if(combo == cbSabor1){
+            App.heladoPedido.setSabor1(sab);
+        }else{
+            if(sab != null){
+                App.heladoPedido.setSabor2(sab);
+            }else{
+                App.heladoPedido.setSabor2(null);
+            }
+        }
+        
+        lblPagarSabores.setText("Valor a pagar: " + App.heladoPedido.getPrecio());
+
+        
+    }
 }

@@ -10,12 +10,29 @@ package Modelo;
  */
 public class Helado {
     private Base base;
+    private Sabor sabor1;
+    private Sabor sabor2;
+    
     private Usuario usuario;
+    private double precio;
+
+    public Helado() {
+        precio = 0;
+    }
+    
+    
+    
     public Base getBase() {
+        
         return base;
     }
 
     public void setBase(Base base) {
+        if(this.base != null){
+            precio -= this.base.getPrecio();
+        }
+        
+        precio += base.getPrecio();
         this.base = base;
     }
 
@@ -27,9 +44,46 @@ public class Helado {
         this.usuario = usuario;
     }
 
+    public Sabor getSabor1() {
+        return sabor1;
+    }
+
+    public void setSabor1(Sabor sabor1) {
+        if(this.sabor1 != null){
+            precio -= this.sabor1.getPrecio();
+        }
+        
+        precio += sabor1.getPrecio();
+        this.sabor1 = sabor1;
+    }
+    
+    public Sabor getSabor2() {
+        return sabor2;
+    }
+
+    public void setSabor2(Sabor sabor2) {
+        if(this.sabor2 != null){
+            precio -= this.sabor2.getPrecio();
+        }
+        if(sabor2 != null){
+            
+            precio += sabor2.getPrecio();
+        }
+        
+        this.sabor2 = sabor2;
+    }
+
     @Override
     public String toString() {
-        return "Helado{" + "base=" + base + ", usuario=" + usuario + '}';
+        return "Helado{" + "base=" + base + ", sabor1=" + sabor1 + ", sabor2=" + sabor2 + ", usuario=" + usuario + ", precio=" + precio + '}';
+    }
+    
+    
+
+    
+
+    public double getPrecio() {
+        return precio;
     }
     
     

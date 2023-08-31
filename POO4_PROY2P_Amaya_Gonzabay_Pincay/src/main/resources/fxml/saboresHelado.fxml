@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.SaboresHeladoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.SaboresHeladoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <HBox prefHeight="46.0" prefWidth="600.0">
          <children>
@@ -36,7 +36,7 @@
       </HBox>
       <HBox prefHeight="25.0" prefWidth="600.0">
          <children>
-            <Label text="Paso 2: Elige el sabor de helado">
+            <Label  text="Paso 2: Elige el sabor de helado">
                <font>
                   <Font name="System Italic" size="24.0" />
                </font>
@@ -75,7 +75,7 @@
          </children></HBox>
       <HBox alignment="BOTTOM_CENTER" prefHeight="182.0" prefWidth="600.0">
          <children>
-            <Label text="Valor a pagar: ">
+            <Label fx:id="lblPagarSabores" text="Valor a pagar: ">
                <HBox.margin>
                   <Insets bottom="40.0" right="300.0" />
                </HBox.margin>
