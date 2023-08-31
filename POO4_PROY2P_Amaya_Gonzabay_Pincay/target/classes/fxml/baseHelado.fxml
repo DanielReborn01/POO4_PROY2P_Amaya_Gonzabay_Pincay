@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BaseHeladoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass"  stylesheets="@../styles/pedidos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BaseHeladoController">
    <children>
       <HBox prefHeight="74.0" prefWidth="600.0">
          <children>
@@ -44,47 +44,7 @@
                </HBox.margin>
             </Label>
          </children></HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="133.0" prefWidth="600.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/yogurt.png.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/logo.png" />
-               </image>
-               <HBox.margin>
-                  <Insets left="60.0" right="60.0" />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/helado%20vegano.png" />
-               </image>
-            </ImageView>
-         </children></HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="600.0">
-         <children>
-            <Label text="Yogurt" />
-            <Label text="Helado">
-               <HBox.margin>
-                  <Insets left="180.0" right="180.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="Vegano" />
-         </children></HBox>
-      <HBox alignment="TOP_CENTER" prefHeight="21.0" prefWidth="600.0">
-         <children>
-            <Label text="1,50" />
-            <Label text="2,00">
-               <HBox.margin>
-                  <Insets left="200.0" right="200.0" />
-               </HBox.margin>
-            </Label>
-            <Label text="2,50" />
-         </children></HBox>
+      <HBox fx:id="hbBases" alignment="TOP_CENTER" prefHeight="133.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
       <HBox layoutX="10.0" layoutY="327.0" prefHeight="55.0" prefWidth="600.0">
          <children>
             <Label text="Valor a pagar: ">
@@ -95,7 +55,7 @@
                   <Insets left="60.0" top="20.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Continuar">
+            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
                <HBox.margin>
                   <Insets left="300.0" top="20.0" />
                </HBox.margin>

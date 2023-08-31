@@ -4,6 +4,10 @@
  */
 package Modelo;
 
+import Utilidades.Utilidades;
+import static espol.poo4_proy2p_amaya_gonzabay_pincay.App.pathData;
+import static espol.poo4_proy2p_amaya_gonzabay_pincay.App.usuarios;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -42,6 +46,22 @@ public class Usuario {
         this.correo = correo;
         this.password = password;
     }
+    
+    
+    /**
+     * Metodo que permite obtener los datos del archivo usuario
+     * @param ruta Path donde se encuentran los datos
+     * @return un ArrayList con los objetos usuarios
+     */
+    public static ArrayList<Usuario> usuarios(String ruta){
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        ArrayList<String[]> dataUsuario = Utilidades.LeerValidando(ruta, false);
+        for (String[] dataUser : dataUsuario) {
+            usuarios.add(new Usuario(dataUser[0], dataUser[1], dataUser[2]));
+        }
+        return usuarios;
+    }
+    
 
     /**
      * Obtiene los nombres del usuario

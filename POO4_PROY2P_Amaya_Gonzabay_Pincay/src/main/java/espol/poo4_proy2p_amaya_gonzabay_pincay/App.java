@@ -1,5 +1,6 @@
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Base;
 import Modelo.Usuario;
 import Utilidades.Utilidades;
 
@@ -22,21 +23,20 @@ public class App extends Application {
     private static Scene scene;
     private static Stage stagePrincipal;
     
-    public final String pathImage = "src/main/resources/Imagenes/" ; 
-    public final String pathData = "src/main/resources/Data/";
+    public static String pathImage = "src/main/resources/Imagenes/" ; 
+    public static String pathData = "src/main/resources/Data/";
     
     public static Format tam = Format.MEDIANO;
     public static ArrayList<Usuario> usuarios = new ArrayList<>();
+    public static ArrayList<Base> bases = new ArrayList<>();
 
     @Override
     public void init() throws Exception {
         super.init();
         
         //Se cargaran todos los datos
-        ArrayList<String[]> dataUsuario = Utilidades.LeerValidando(pathData + "usuarios.txt", false);
-        for (String[] dataUser : dataUsuario) {
-            usuarios.add(new Usuario(dataUser[0], dataUser[1], dataUser[2]));
-        }
+        usuarios = Usuario.usuarios(pathData+"usuarios.txt");
+        bases = Base.Bases(pathData+"bases.txt");
     }
     
     

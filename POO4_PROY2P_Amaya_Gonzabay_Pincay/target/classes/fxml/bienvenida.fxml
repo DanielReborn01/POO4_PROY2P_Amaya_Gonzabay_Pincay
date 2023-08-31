@@ -45,12 +45,12 @@
                         <Font name="System Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Encuentra nuestros locales">
+                  <Button fx:id="btnLocales" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Encuentra nuestros locales">
                      <VBox.margin>
                         <Insets bottom="20.0" left="60.0" top="20.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Haz tu pedido">
+                  <Button fx:id="btnPedidos" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Haz tu pedido">
                      <VBox.margin>
                         <Insets bottom="20.0" left="60.0" top="20.0" />
                      </VBox.margin>

@@ -11,7 +11,6 @@
     
     -fx-effect: innershadow(gaussian, white, 1, 0.3, 0, 3); 
     
-    
 }
 .labelTitulo{
     -fx-font-family: 'Handjet', cursive;
