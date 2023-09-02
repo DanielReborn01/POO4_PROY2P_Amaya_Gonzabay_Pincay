@@ -4,13 +4,19 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.IncompleteStageException;
 import Modelo.Sabor;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
@@ -35,6 +41,9 @@ public class SaboresHeladoController implements Initializable {
     @FXML 
     private ComboBox cbSabor2;
     
+    @FXML
+    private Button btnSaboresContinuar; 
+    
     private ArrayList<Sabor> sabores = App.sabores; //Copia de la direccion de memoria
     
     @Override
@@ -58,6 +67,16 @@ public class SaboresHeladoController implements Initializable {
             choiceSabor(cbSabor2);
         });
         
+        btnSaboresContinuar.addEventHandler(ActionEvent.ACTION, e ->{
+            try {
+                nextPage();
+            } catch (IncompleteStageException ex) {
+                System.out.println(ex);
+            } catch (IOException ex) {
+                System.out.println("Ocurrio un error al abrir la ventana");
+            }
+        });
+        
     }    
     
     private void choiceSabor(ComboBox combo){
@@ -76,6 +95,25 @@ public class SaboresHeladoController implements Initializable {
         
         lblPagarSabores.setText("Valor a pagar: " + App.heladoPedido.getPrecio());
 
+        
+    }
+    
+    private void nextPage() throws IncompleteStageException, IOException{
+        //Valida que se haya escogido el comboBox
+        System.out.println(cbSabor1.getValue());
+        if(cbSabor1.getValue() == null){
+            throw new IncompleteStageException("Ocurrio un error");
+        }
+        
+        //Muestra la escena de los toppings
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/topping" + ".fxml"));
+        Parent rootNew = fxmlLoader.load();
+        
+        
+        double ancho = BienvenidaController.stagePedidos.getScene().getWidth();
+        double alto = BienvenidaController.stagePedidos.getScene().getHeight();
+        
+        BienvenidaController.stagePedidos.setScene(new Scene(rootNew, ancho,alto));
         
     }
 }

@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.PedidoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/pedidos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.PedidoController">
    <children>
       <HBox prefHeight="32.0" prefWidth="600.0">
          <children>
@@ -45,12 +44,12 @@
       </Label>
       <HBox prefHeight="250.0" prefWidth="600.0">
          <children>
-            <ListView prefHeight="200.0" prefWidth="200.0">
+            <ListView fx:id="LVpedido" styleClass="listViewPedidos">
                <HBox.margin>
                   <Insets left="60.0" />
                </HBox.margin>
             </ListView>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Eliminar">
+            <Button fx:id="btnEliminar" mnemonicParsing="false" styleClass="mainFxmlClass" text="Eliminar">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
@@ -59,7 +58,7 @@
       </HBox>
       <HBox alignment="BOTTOM_LEFT" prefHeight="231.0" prefWidth="600.0">
          <children>
-            <Label text="Valor a pagar: ">
+            <Label fx:id="lblPrecioPedido" text="Valor a pagar: ">
                <HBox.margin>
                   <Insets bottom="30.0" left="60.0" right="200.0" />
                </HBox.margin>

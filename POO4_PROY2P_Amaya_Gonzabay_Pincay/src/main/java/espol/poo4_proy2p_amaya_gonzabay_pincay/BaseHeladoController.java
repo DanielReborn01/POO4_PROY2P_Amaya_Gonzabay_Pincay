@@ -5,9 +5,7 @@
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.Base;
-import Modelo.Helado;
 import Modelo.IncompleteStageException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -36,7 +36,7 @@
          <VBox.margin>
             <Insets top="-8.0" />
          </VBox.margin></HBox>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="vboxToppings" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Label text="Paso 3: Elige los toppings">
                <font>
@@ -46,46 +46,17 @@
                   <Insets left="60.0" />
                </VBox.margin>
             </Label>
-            <CheckBox fx:id="chkGChoco" mnemonicParsing="false" text="Grageas de chocolate - 0.50">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="chkGcaramelo" mnemonicParsing="false" text="Grageas de caramelo - 0.50">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="chkSManjar" mnemonicParsing="false" text="Sirope de manjar - 0.80">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="chkSFresa" mnemonicParsing="false" text="Sirope de fresa - 0.90">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="chkSChoco" mnemonicParsing="false" text="Sirope de chocolate - 0.80">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
-            <CheckBox fx:id="chkGalletaOreo" mnemonicParsing="false" text="Galleta oreo 0.40">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="60.0" top="10.0" />
-               </VBox.margin>
-            </CheckBox>
+            
          </children>
       </VBox>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label text="Valor a pagar: ">
+            <Label fx:id="lblPagarTopping" text="Valor a pagar: ">
                <HBox.margin>
                   <Insets bottom="30.0" left="100.0" right="100.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
+            <Button fx:id="btnNextToppings" mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
                <HBox.margin>
                   <Insets bottom="30.0" left="100.0" right="100.0" />
                </HBox.margin>

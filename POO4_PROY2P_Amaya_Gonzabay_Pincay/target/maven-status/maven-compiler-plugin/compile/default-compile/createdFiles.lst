@@ -1,6 +1,7 @@
 Utilidades\Utilidades.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BienvenidaController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\SaboresHeladoController.class
+Modelo\Sabor.class
 Modelo\IncompleteStageException.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\Format.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\LoginController.class
@@ -10,9 +11,11 @@ espol\poo4_proy2p_amaya_gonzabay_pincay\PagoController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\PedidoController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BienvenidaController$2.class
 Modelo\Base.class
+Modelo\Topping.class
 Modelo\Usuario.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BaseHeladoController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\App.class
+Modelo\windowDialog.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\FinalController.class
 Modelo\Helado.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BienvenidaController$1.class

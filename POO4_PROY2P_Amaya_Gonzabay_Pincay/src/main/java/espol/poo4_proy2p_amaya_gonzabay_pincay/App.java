@@ -3,6 +3,7 @@ package espol.poo4_proy2p_amaya_gonzabay_pincay;
 import Modelo.Base;
 import Modelo.Helado;
 import Modelo.Sabor;
+import Modelo.Topping;
 import Modelo.Usuario;
 import Utilidades.Utilidades;
 
@@ -33,6 +34,7 @@ public class App extends Application {
     public static ArrayList<Usuario> usuarios = new ArrayList<>();
     public static ArrayList<Base> bases = new ArrayList<>();
     public static ArrayList<Sabor> sabores = new ArrayList<>();
+    public static ArrayList<Topping> toppings = new ArrayList<>();
 
     @Override
     public void init() throws Exception {
@@ -42,6 +44,7 @@ public class App extends Application {
         usuarios = Usuario.usuarios(pathData+"usuarios.txt");
         bases = Base.Bases(pathData+"bases.txt");
         sabores = Sabor.sabores(pathData + "sabores.txt");
+        toppings = Topping.toppings(pathData + "toppings.txt");
     }
     
     

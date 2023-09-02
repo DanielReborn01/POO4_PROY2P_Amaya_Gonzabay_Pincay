@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author wal26
@@ -12,12 +14,14 @@ public class Helado {
     private Base base;
     private Sabor sabor1;
     private Sabor sabor2;
-    
+    private ArrayList<Topping> toppings;
     private Usuario usuario;
     private double precio;
 
     public Helado() {
         precio = 0;
+        toppings = new ArrayList<>();
+        
     }
     
     
@@ -53,7 +57,10 @@ public class Helado {
             precio -= this.sabor1.getPrecio();
         }
         
-        precio += sabor1.getPrecio();
+        if(sabor1 != null){
+            precio += sabor1.getPrecio();
+        }
+        
         this.sabor1 = sabor1;
     }
     
@@ -72,14 +79,26 @@ public class Helado {
         
         this.sabor2 = sabor2;
     }
+    
+    public void addTopping(Topping topping){
+        precio += topping.getPrecio();
+        toppings.add(topping);
+    }
+    
+    public void removeTopping(Topping topping){
+        precio -= topping.getPrecio();
+        toppings.remove(topping);
+    }
 
+    public ArrayList<Topping> getToppings() {
+        return toppings;
+    }
+
+    
     @Override
     public String toString() {
         return "Helado{" + "base=" + base + ", sabor1=" + sabor1 + ", sabor2=" + sabor2 + ", usuario=" + usuario + ", precio=" + precio + '}';
     }
-    
-    
-
     
 
     public double getPrecio() {

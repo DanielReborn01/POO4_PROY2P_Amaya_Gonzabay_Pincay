@@ -6,6 +6,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Created on : Aug 31, 2023, 9:55:18 AM
     Author     : wal26
 */
+
+
 .mainFxmlClass {
     -fx-background-image: url('../Imagenes/background.png');
     -fx-background-size: 1750 1400;
@@ -35,3 +37,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-cursor: hand;
 }
 
+
+/**PEDIDOS**/
+
+.listViewPedidos{
+    -fx-padding: 10;
+    -fx-scroll-y: none;
+}
+
+.listViewPedidos:focus{
+
+    -fx-border-color: red;
+}
+
+/**VENTANA DIALOG**/
+
+.lblMensajeDialog{
+    -fx-font-family: 'Handjet', cursive;
+    -fx-font-size: 22;
+    -fx-font-weight: bold; 
+}

@@ -80,7 +80,7 @@
                   <Insets bottom="40.0" right="300.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Continuar">
+            <Button fx:id="btnSaboresContinuar" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Continuar">
                <HBox.margin>
                   <Insets bottom="40.0" />
                </HBox.margin>
