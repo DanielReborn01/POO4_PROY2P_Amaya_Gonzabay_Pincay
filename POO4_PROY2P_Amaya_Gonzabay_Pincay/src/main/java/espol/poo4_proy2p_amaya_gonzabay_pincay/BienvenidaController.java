@@ -36,7 +36,7 @@ import javafx.stage.WindowEvent;
 /**
  * FXML Controller class
  *
- * @author danie
+ * @author 
  */
 public class BienvenidaController implements Initializable {
 
@@ -212,4 +212,3 @@ public class BienvenidaController implements Initializable {
         
     }
 }
-
