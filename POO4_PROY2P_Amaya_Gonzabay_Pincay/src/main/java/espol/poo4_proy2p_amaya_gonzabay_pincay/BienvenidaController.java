@@ -36,7 +36,7 @@ import javafx.stage.WindowEvent;
 /**
  * FXML Controller class
  *
- * @author 
+ * @author danie
  */
 public class BienvenidaController implements Initializable {
 
@@ -92,7 +92,9 @@ public class BienvenidaController implements Initializable {
         
         Thread hilo = new Thread(()->{
             for (Pickup pickup : App.pickups) {
-              
+                if(App.close){
+                    break;
+                }
                 ImageView imv = new ImageView();
                 String path = App.pathImage + "logo.png";
                 try {
@@ -195,12 +197,12 @@ public class BienvenidaController implements Initializable {
         Platform.runLater(()->{
             if(pickup.getCoordenadaX() < 560/2 && pickup.getCoordenadaY() < 200){
                 cont.setLayoutX(pickup.getCoordenadaX());
-                cont.setLayoutY(pickup.getCoordenadaY());
+                cont.setLayoutY(pickup.getCoordenadaY()+50);
             }else if(pickup.getCoordenadaX() > 560/2 && pickup.getCoordenadaY() < 200){
-                cont.setLayoutX(pickup.getCoordenadaX() - 160);
+                cont.setLayoutX(pickup.getCoordenadaX() - 200);
                 cont.setLayoutY(pickup.getCoordenadaY());
             }else if(pickup.getCoordenadaX() > 560/2 && pickup.getCoordenadaY() > 200){
-                cont.setLayoutX(pickup.getCoordenadaX() - 160);
+                cont.setLayoutX(pickup.getCoordenadaX() - 200);
                 cont.setLayoutY(pickup.getCoordenadaY() - 160);
             }else{
                 cont.setLayoutX(pickup.getCoordenadaX());
