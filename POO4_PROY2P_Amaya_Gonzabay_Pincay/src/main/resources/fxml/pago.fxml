@@ -74,7 +74,7 @@
       <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="249.39996337890625" minWidth="10.0" percentWidth="30.0" prefWidth="130.80001220703124" />
-          <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="384.60003662109375" minWidth="10.0" percentWidth="70.0" prefWidth="319.59998779296876" />
+          <ColumnConstraints fillWidth="false" halignment="LEFT" hgrow="ALWAYS" maxWidth="384.60003662109375" minWidth="10.0" percentWidth="70.0" prefWidth="319.59998779296876" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -84,13 +84,13 @@
         </rowConstraints>
          <children>
             <Label text="Valor a pagar" />
-            <TextField fx:id="txtValorPagar" disable="true" GridPane.columnIndex="1" />
+            <TextField fx:id="txtValorPagar" disable="true" prefWidth="200.0" GridPane.columnIndex="1" />
             <Label text="Adicional tarjeta" GridPane.rowIndex="1" />
             <Label text="IVA" GridPane.rowIndex="2" />
             <Label text="Total a pagar" GridPane.rowIndex="3" />
-            <TextField fx:id="txtAdicionalTarjeta" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="txtIva" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtTotal" disable="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtAdicionalTarjeta" disable="true" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtIva" disable="true" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTotal" disable="true" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
          <padding>
             <Insets left="20.0" right="20.0" />
@@ -103,7 +103,7 @@
       </VBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" text="Confirmar" />
+            <Button fx:id="btnConfirmar" mnemonicParsing="false" text="Confirmar" />
             <Button mnemonicParsing="false" text="Cancelar" />
          </children>
          <padding>

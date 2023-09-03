@@ -1,7 +1,0 @@
-580540;Oliver;6.8
-396023;Oliver;5.8
-535115;Oliver;5.8
-190478;Oliver;5.8
-808299;Oliver;5.0
-972844;Oliver;5.8
-82256;Oliver;5.5

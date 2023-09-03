@@ -4,17 +4,27 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.IncompleteFieldsException;
+import Modelo.TipoPago;
+import java.io.IOException;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.PickResult;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -58,16 +68,17 @@ public class PagoController implements Initializable {
     @FXML
     private VBox contDin;
     
+    @FXML 
+    private Button btnConfirmar;
+    
+    private TextField txtNombre, txtNumero, txtCvv;
+    private DatePicker dpFecha;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
  
         //Colocando los datos de pago
-        txtValorPagar.setText(App.heladoPedido.getPrecio()+"");
-        txtAdicionalTarjeta.setText("0.0");
-        txtIva.setText((App.heladoPedido.getPrecio()*0.12) + "");
-        double precioTotal = App.heladoPedido.getPrecio() + App.heladoPedido.getPrecio()*0.12;
-        txtTotal.setText(precioTotal + "");
+        updateTextEfectivo();
         
         
         //Colocando los controles
@@ -79,36 +90,58 @@ public class PagoController implements Initializable {
             showSection(e);
         });
         
-    }    
+        btnConfirmar.addEventHandler(ActionEvent.ACTION, e->{
+            try {
+                pagarPedido();
+            } catch (IncompleteFieldsException ex) {
+                System.out.println(ex);
+            }
+        });
+        
+    } 
+    
+    private void updateTextEfectivo(){
+        txtValorPagar.setText(App.heladoPedido.getPrecio()+"");
+        double preciores = 0.0;
+        if(!txtAdicionalTarjeta.getText().isEmpty()){
+            preciores = Double.parseDouble(txtAdicionalTarjeta.getText());
+            
+        }
+        txtAdicionalTarjeta.setText("0.0");
+        txtIva.setText((App.heladoPedido.getPrecio()*0.12) + "");
+        double precioTotal = App.heladoPedido.getPrecio() + App.heladoPedido.getPrecio()*0.12 - preciores;
+        txtTotal.setText(precioTotal + "");
+    }
     
     private void showSection(ActionEvent e){
         //Se limpia el contenedor
         contDin.getChildren().clear();
-        contDin.setPadding(new Insets(10, 0, 0, 0));
+        contDin.setPadding(new Insets(10, 0, 0, 20));
         RadioButton rbSel = (RadioButton) e.getSource();
         if(rbSel.equals(rbEfectivo)){
             Label mensajeL = new Label("Puede acercarse a ventanilla para poder pagar su pedido");
-            mensajeL.setStyle("-fx-font-size: 20; -fx-font-weight: bold");
+            mensajeL.setStyle("-fx-font-size: 18; -fx-font-weight: bold");
             contDin.getChildren().add(mensajeL);
+            updateTextEfectivo();
             
         }else if(rbSel.equals(rbTarjeta)){
+            txtAdicionalTarjeta.setText(0.69 + "");
+            double precio = Double.parseDouble(txtTotal.getText()) + 0.69;
+            txtTotal.setText(precio + "");
             BienvenidaController.stagePedidos.setHeight(500);
             Label lblMensa = new Label("Inserte los datos de su tarjeta");
             GridPane griPane = new GridPane();
-            ColumnConstraints c1 = new ColumnConstraints();
-            ColumnConstraints c2 = new ColumnConstraints();
             
-            c1.setPercentWidth(30);
-            c2.setPercentWidth(70);
-            griPane.getColumnConstraints().addAll(c1, c2);
-            griPane.setHgap(5);
             griPane.setVgap(5);
-            
+            ColumnConstraints c1 = new ColumnConstraints();
+            c1.setPercentWidth(30);
+            griPane.getColumnConstraints().add(c1);
             Label lblNombre = new Label("Nombre ");
             GridPane.setRowIndex(lblNombre, 0);
             GridPane.setColumnIndex(lblMensa, 0);
             
-            TextField txtNombre = new TextField();
+            this.txtNombre = new TextField();
+            txtNombre.setPrefWidth(200);
             GridPane.setRowIndex(txtNombre, 0);
             GridPane.setColumnIndex(txtNombre, 1);
             
@@ -116,7 +149,8 @@ public class PagoController implements Initializable {
             GridPane.setRowIndex(lblNumero, 1);
             GridPane.setColumnIndex(lblNumero, 0);
             
-            TextField txtNumero = new TextField();
+            this.txtNumero = new TextField();
+            txtNumero.setPrefWidth(200);
             GridPane.setRowIndex(txtNumero, 1);
             GridPane.setColumnIndex(txtNumero, 1);
             
@@ -124,7 +158,8 @@ public class PagoController implements Initializable {
             GridPane.setRowIndex(lblFecha, 2);
             GridPane.setColumnIndex(lblFecha, 0);
             
-            DatePicker dpFecha = new DatePicker();
+            this.dpFecha = new DatePicker();
+            dpFecha.setPrefWidth(200);
             GridPane.setRowIndex(dpFecha, 2);
             GridPane.setColumnIndex(dpFecha, 1);
             
@@ -132,7 +167,8 @@ public class PagoController implements Initializable {
             GridPane.setRowIndex(lblCvv, 3);
             GridPane.setColumnIndex(lblCvv, 0);
             
-            TextField txtCvv = new TextField();
+            this.txtCvv = new TextField();
+            txtCvv.setPrefWidth(200);
             GridPane.setRowIndex(txtCvv, 3);
             GridPane.setColumnIndex(txtCvv, 1);
             
@@ -144,5 +180,51 @@ public class PagoController implements Initializable {
         }
         
         
+    }
+    
+    private void pagarPedido() throws IncompleteFieldsException{
+        if(pagoGroup.getSelectedToggle() == null){
+            throw new IncompleteFieldsException("No selecciono un metodo de pago");
+        }
+        
+        
+        
+        if(((RadioButton)pagoGroup.getSelectedToggle()).equals(rbEfectivo)){
+            App.heladoPedido.generarTransaccion(TipoPago.E);
+            
+        }else if(((RadioButton)pagoGroup.getSelectedToggle()).equals(rbTarjeta)){
+            //Validando datos de la trajeta
+            String nombreTa = txtNombre.getText();
+            String numeroTa = txtNumero.getText();
+            String fecha = null;
+            if(dpFecha.getValue() != null){
+                fecha = dpFecha.getValue().format(DateTimeFormatter.ISO_LOCAL_DATE);
+            }
+            String cvv = txtCvv.getText();
+            if(nombreTa == null || numeroTa == null || fecha == null || cvv == null){
+                throw new IncompleteFieldsException("No se llenaron todos los campos solicitados");
+                
+            }else if(nombreTa.isEmpty() || numeroTa.isEmpty() || cvv.isEmpty() || fecha.isEmpty()){
+                throw new IncompleteFieldsException("No se llenaron todos los campos solicitados");
+            }
+            
+            //Pasan las validaciones
+            App.heladoPedido.generarTransaccion(TipoPago.T);
+        }
+        
+        //Mostramos la escena final
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/final" + ".fxml"));
+        Parent rootNew = null;
+        try {
+            rootNew = fxmlLoader.load();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        double ancho = BienvenidaController.stagePedidos.getScene().getWidth();
+        double alto = BienvenidaController.stagePedidos.getScene().getHeight();
+        
+        BienvenidaController.stagePedidos.setScene(new Scene(rootNew, ancho,alto));
     }
 }

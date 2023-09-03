@@ -9,5 +9,5 @@ package Modelo;
  * @author wal26
  */
 public interface Pagable {
-    void generarTransaccion();
+    void generarTransaccion(TipoPago tipoPago);
 }

@@ -40,7 +40,7 @@
             <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label text="Tu pedido es el #11111111 . Te llamaremos cuando esté listo">
+      <Label fx:id="lbPedido" text="Tu pedido es el #11111111 . Te llamaremos cuando esté listo">
          <VBox.margin>
             <Insets left="60.0" />
          </VBox.margin>
@@ -56,7 +56,7 @@
             <Insets left="200.0" top="30.0" />
          </VBox.margin>
       </ImageView>
-      <Label text="Esta ventana se cerrará en 5 segundos">
+      <Label fx:id="lbEspera" text="Esta ventana se cerrará en 5 segundos">
          <VBox.margin>
             <Insets left="350.0" top="30.0" />
          </VBox.margin>

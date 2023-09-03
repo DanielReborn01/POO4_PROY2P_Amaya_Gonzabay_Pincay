@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import Utilidades.Utilidades;
 import espol.poo4_proy2p_amaya_gonzabay_pincay.App;
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -13,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -40,6 +42,10 @@ public class Helado implements Serializable, Pagable{
         precio = 0;
         toppings = new ArrayList<>();
         
+    }
+
+    public int getId() {
+        return id;
     }
     
     
@@ -138,8 +144,29 @@ public class Helado implements Serializable, Pagable{
     }
 
     @Override
-    public void generarTransaccion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void generarTransaccion(TipoPago tipoPago) {
+        //Se guardara la informacion del pago
+        SecureRandom number;
+        int idPago = 0;
+        try {
+            number = SecureRandom.getInstance("SHA1PRNG");
+            idPago = number.nextInt(99999);
+
+        } catch (NoSuchAlgorithmException ex) {
+            ex.printStackTrace();
+        }
+        double aumento = 0;
+        if(tipoPago.equals(TipoPago.T)){
+            aumento = 0.69;
+        }
+        //Precio con iva y con el aumento de la trajeta si  ese es el caso
+        double precioTotal = this.precio + aumento + this.precio*0.12;
+        LocalDate fechaActual = LocalDate.now();
+        String dataSave = idPago+","+this.id+","+this.usuario.getNombres()+","+precioTotal+
+                ","+fechaActual+","+tipoPago.toString();
+        
+        //Lo escribimos en el archivo 
+        Utilidades.EscribirArchivo(App.pathData + "pagos.txt", dataSave);
     }
     
     
