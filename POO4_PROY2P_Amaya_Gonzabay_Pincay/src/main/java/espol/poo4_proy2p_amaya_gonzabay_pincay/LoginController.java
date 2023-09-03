@@ -9,7 +9,9 @@ import Utilidades.Utilidades;
 import java.io.IOException;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
@@ -101,11 +104,45 @@ public class LoginController implements Initializable {
     
     private void makeNewWindow(){
         Stage stagePedidos = new Stage();
-        Scene scena = new Scene(new HBox(),350,250);
+        
+        
+        ListView<String> LvPedidos = new ListView<>();
+        Scene scena = new Scene(LvPedidos,350,250);
+        Thread hiloPedido = new Thread(()->{
+            while(true){
+                if(App.close){
+                    break;
+                }
+                try {
+                    Platform.runLater(()->{
+                        LvPedidos.getItems().clear();
+                    });
+                    ArrayList<String> lineas = Utilidades.LeerArchivo(App.pathData + "pagos.txt");
+                    
+                    for (String linea : lineas) {
+                        String[] data = linea.split(",");
+                        Platform.runLater(()->{
+                            LvPedidos.getItems().add(data[1] + ", " + data[2]);
+                        });
+                        
+                    }
+                    
+                    Thread.sleep(5000);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+                
+                
+            }
+        });
+        
+        hiloPedido.start();
         stagePedidos.setScene(scena);
+        stagePedidos.setResizable(false);
         stagePedidos.show();
     }
     
         
         
 }
+

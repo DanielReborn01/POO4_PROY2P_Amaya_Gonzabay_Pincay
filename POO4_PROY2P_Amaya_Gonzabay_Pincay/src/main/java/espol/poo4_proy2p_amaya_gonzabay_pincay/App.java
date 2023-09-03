@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import static javafx.application.Application.launch;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 
 /**
@@ -39,6 +40,7 @@ public class App extends Application {
     public static ArrayList<Pickup> pickups = new ArrayList<>();
     public static ArrayList<Topping> toppings = new ArrayList<>();
     public static Usuario userLogin = null;
+    public static boolean close = false;
     @Override
     public void init() throws Exception  {
         super.init();
@@ -61,27 +63,16 @@ public class App extends Application {
         Parent root = fxmlLoader.load();
         scene = new Scene(root, 750, 480);
         
-        //Ponemos a la escucha para el Design Responsive
-        scene.widthProperty().addListener((o) -> {
-           
-           if(scene.getWidth() > 500 && scene.getWidth() < 1024 && !tam.equals(Format.MEDIANO)){
-               //Se coloca la vista del tamano mediano
-               System.out.println("Tamaño mediano");
-               tam = Format.MEDIANO;
-           }else if(scene.getWidth() < 500 && !tam.equals(Format.PEQUEÑO)){
-               System.out.println("Tamaño pequeño");
-            
-               tam = Format.PEQUEÑO;
-           }else if(scene.getWidth() > 1024 && !tam.equals(Format.FULL)){
-               System.out.println("Tamaño grande");
-               tam = Format.FULL;
-           }
-        });
-        
         stage.setScene(scene);
         stage.setMinWidth(375);
         stage.setMinHeight(450);
         stage.getIcons().add(new Image(new FileInputStream(pathImage+"logo.png")));
+        
+        stage.setOnCloseRequest(e -> {
+            close = true;
+            Platform.exit();
+        });
+        
         stage.show();
     }
     
