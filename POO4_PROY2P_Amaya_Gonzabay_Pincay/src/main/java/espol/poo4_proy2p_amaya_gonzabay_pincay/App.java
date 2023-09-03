@@ -2,6 +2,7 @@ package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.Base;
 import Modelo.Helado;
+import Modelo.Pickup;
 import Modelo.Sabor;
 import Modelo.Topping;
 import Modelo.Usuario;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 
 /**
@@ -34,6 +36,7 @@ public class App extends Application {
     public static ArrayList<Usuario> usuarios = new ArrayList<>();
     public static ArrayList<Base> bases = new ArrayList<>();
     public static ArrayList<Sabor> sabores = new ArrayList<>();
+    public static ArrayList<Pickup> pickups = new ArrayList<>();
     public static ArrayList<Topping> toppings = new ArrayList<>();
     public static Usuario userLogin = null;
     @Override
@@ -45,6 +48,7 @@ public class App extends Application {
         bases = Base.Bases(pathData+"bases.txt");
         sabores = Sabor.sabores(pathData + "sabores.txt");
         toppings = Topping.toppings(pathData + "toppings.txt");
+        pickups = Pickup.pickup(pathData + "locales.txt");
     }
     
     

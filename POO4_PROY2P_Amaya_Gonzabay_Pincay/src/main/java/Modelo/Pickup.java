@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author wal26
+ * @author
  */
 public class Pickup {
     private double coordenadaX;
