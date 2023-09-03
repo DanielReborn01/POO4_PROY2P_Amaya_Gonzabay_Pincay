@@ -35,9 +35,9 @@ public class App extends Application {
     public static ArrayList<Base> bases = new ArrayList<>();
     public static ArrayList<Sabor> sabores = new ArrayList<>();
     public static ArrayList<Topping> toppings = new ArrayList<>();
-
+    public static Usuario userLogin = null;
     @Override
-    public void init() throws Exception {
+    public void init() throws Exception  {
         super.init();
         
         //Se cargaran todos los datos

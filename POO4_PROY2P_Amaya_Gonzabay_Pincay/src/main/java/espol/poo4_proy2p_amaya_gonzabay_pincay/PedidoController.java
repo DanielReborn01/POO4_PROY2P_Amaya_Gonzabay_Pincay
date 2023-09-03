@@ -4,17 +4,21 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Helado;
 import Modelo.IncompleteStageException;
 import Modelo.Sabor;
 import Modelo.Topping;
 import Modelo.windowDialog;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,6 +48,10 @@ public class PedidoController implements Initializable {
     @FXML
     private Button btnEliminar;
     
+    @FXML
+    private Button btnConfirmar;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         lblPrecioPedido.setText("Valor a pagar: " + App.heladoPedido.getPrecio());
@@ -60,6 +68,12 @@ public class PedidoController implements Initializable {
                     System.out.println(ex);
                 }
             }, "Esta seguro que desea eliminar el elemento");
+        });
+        
+        btnConfirmar.addEventHandler(ActionEvent.ACTION, e->{
+            makeWindowDialog((s)->{
+                addPedido(s);
+            }, "Esta seguro de que desea confirmar el pedido");
         });
     }
 
@@ -169,5 +183,36 @@ public class PedidoController implements Initializable {
         
         lblPrecioPedido.setText("Valor a pagar: " + App.heladoPedido.getPrecio());
     }
+    
+    private void addPedido(Stage stage){
+        try {
+            App.heladoPedido.savePedido();
+            
+        } catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+        stage.close();
+        
+        
+        //Cambiar el stage
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/pago" + ".fxml"));
+        Parent rootNew = null;
+        try {
+            rootNew = fxmlLoader.load();
+        } catch (IOException ex) {
+            System.out.println("Ocurrio un error al montrar la seccion pago");
+        }
+        
+        
+        double ancho = BienvenidaController.stagePedidos.getScene().getWidth();
+        double alto = BienvenidaController.stagePedidos.getScene().getHeight();
+        
+        BienvenidaController.stagePedidos.setScene(new Scene(rootNew, ancho,alto));
+       
+        
+    }
+    
+    
     
 }

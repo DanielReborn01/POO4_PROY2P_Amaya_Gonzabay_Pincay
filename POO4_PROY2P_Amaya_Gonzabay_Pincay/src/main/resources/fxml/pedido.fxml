@@ -63,7 +63,7 @@
                   <Insets bottom="30.0" left="60.0" right="200.0" />
                </HBox.margin>
             </Label>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Confirmar">
+            <Button fx:id="btnConfirmar" mnemonicParsing="false" styleClass="mainFxmlClass" text="Confirmar">
                <HBox.margin>
                   <Insets bottom="30.0" right="30.0" />
                </HBox.margin>

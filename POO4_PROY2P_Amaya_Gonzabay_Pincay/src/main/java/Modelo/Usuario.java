@@ -7,6 +7,7 @@ package Modelo;
 import Utilidades.Utilidades;
 import static espol.poo4_proy2p_amaya_gonzabay_pincay.App.pathData;
 import static espol.poo4_proy2p_amaya_gonzabay_pincay.App.usuarios;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ import java.util.Objects;
  * 
  * @author Walter G
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private String nombres;
     private String correo;
     private String password;

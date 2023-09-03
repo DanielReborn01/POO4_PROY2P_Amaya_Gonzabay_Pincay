@@ -50,6 +50,7 @@ public class BienvenidaController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 try {
+                    App.heladoPedido.setUsuario(App.userLogin);
                     makeWindowPedidos();
                 } catch (IOException ex) {
                     System.out.println("Ocurrio un error");

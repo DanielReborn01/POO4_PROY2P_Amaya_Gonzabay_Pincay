@@ -6,6 +6,7 @@ package Modelo;
 
 import Utilidades.Utilidades;
 import espol.poo4_proy2p_amaya_gonzabay_pincay.App;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -16,7 +17,7 @@ import java.util.Objects;
  * 
  * @author wal26
  */
-public class Base {
+public class Base implements Serializable{
     
     private String sabor;
     private double precio;

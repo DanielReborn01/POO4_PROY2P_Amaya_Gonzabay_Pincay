@@ -85,7 +85,7 @@ public class LoginController implements Initializable {
         
         //Agregando el usuasrio al pedido
         App.heladoPedido.setUsuario(App.usuarios.get(indice));
-        
+        App.userLogin = App.usuarios.get(indice);
         //Mostrando la ventana
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/bienvenida" + ".fxml"));
         Parent root;

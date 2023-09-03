@@ -4,21 +4,39 @@
  */
 package Modelo;
 
+import espol.poo4_proy2p_amaya_gonzabay_pincay.App;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
+
 
 /**
  *
  * @author wal26
  */
-public class Helado {
+public class Helado implements Serializable, Pagable{
     private Base base;
     private Sabor sabor1;
     private Sabor sabor2;
     private ArrayList<Topping> toppings;
     private Usuario usuario;
     private double precio;
+    private int id;
+    
 
     public Helado() {
+        try {
+            SecureRandom number = SecureRandom.getInstance("SHA1PRNG");
+            id = number.nextInt(999999);
+        } catch (NoSuchAlgorithmException ex) {
+            System.out.println("Algo fallo con el metodo de generacion de numeros");
+        }
         precio = 0;
         toppings = new ArrayList<>();
         
@@ -94,15 +112,34 @@ public class Helado {
         return toppings;
     }
 
-    
+    public void savePedido() throws IOException{
+        //Se guarda en el archivo pedido
+        
+        BufferedWriter bff = new BufferedWriter(new FileWriter(App.pathData + "pedidos.txt",true));
+        bff.write(this+"\n");
+        bff.flush();
+        
+        //Guardamos el objeto
+        ObjectOutputStream ob = new ObjectOutputStream(new FileOutputStream(App.pathData + "pedido" + this.id + ".bin", true));
+        ob.writeObject(this);
+        ob.flush();
+    }
+
     @Override
     public String toString() {
-        return "Helado{" + "base=" + base + ", sabor1=" + sabor1 + ", sabor2=" + sabor2 + ", usuario=" + usuario + ", precio=" + precio + '}';
+        return id+";"+usuario.getNombres()+";"+precio;
     }
+    
+    
     
 
     public double getPrecio() {
         return precio;
+    }
+
+    @Override
+    public void generarTransaccion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

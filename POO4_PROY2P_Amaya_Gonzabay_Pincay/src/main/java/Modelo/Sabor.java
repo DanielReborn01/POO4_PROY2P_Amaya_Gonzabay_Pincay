@@ -5,6 +5,7 @@
 package Modelo;
 
 import Utilidades.Utilidades;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author wal26
  */
-public class Sabor {
+public class Sabor implements Serializable {
     private String nombre;
     private double precio;
 
