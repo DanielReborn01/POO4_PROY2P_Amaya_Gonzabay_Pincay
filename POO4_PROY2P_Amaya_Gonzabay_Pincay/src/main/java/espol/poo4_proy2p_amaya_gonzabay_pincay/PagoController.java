@@ -4,12 +4,14 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Helado;
 import Modelo.IncompleteFieldsException;
 import Modelo.TipoPago;
+import Utilidades.Utilidades;
+import Utilidades.popupWindows;
 import java.io.IOException;
 import java.net.URL;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,7 +26,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.input.PickResult;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -55,6 +56,9 @@ public class PagoController implements Initializable {
     
     @FXML
     private ToggleGroup pagoGroup;
+    
+    @FXML
+    private Button btnCancelar;
     
     @FXML
     private RadioButton rbEfectivo;
@@ -91,13 +95,31 @@ public class PagoController implements Initializable {
         });
         
         btnConfirmar.addEventHandler(ActionEvent.ACTION, e->{
-            try {
-                pagarPedido();
-            } catch (IncompleteFieldsException ex) {
-                System.out.println(ex);
-            }
+            popupWindows.makeWindowDialog((s)->{
+                try {
+                    pagarPedido();
+                } catch (IncompleteFieldsException ex) {
+                    System.out.println(ex);
+                }
+                s.close();
+            }, "Esta seguro de confirmar el pago");
+            
         });
-        
+        btnCancelar.addEventHandler(ActionEvent.ACTION, (e)->{
+            //Eliminar pedido
+            popupWindows.makeWindowDialog((s)->{
+                BienvenidaController.stagePedidos.close();
+                int indice = Helado.getIndiceSave(App.pathData + "pedidos.txt", App.heladoPedido);
+                Utilidades.EliminarLinea(App.pathData + "pedidos.txt", (indice + 1));
+                
+                App.heladoPedido = new Helado();
+                App.heladoPedido.setUsuario(App.userLogin);
+                
+                //Elimina el pedidodo el archivo
+                BienvenidaController.stagePedidos.close();
+                s.close();
+            }, "Esta seguro que desea cancelar el pedido :c");
+        });
     } 
     
     private void updateTextEfectivo(){

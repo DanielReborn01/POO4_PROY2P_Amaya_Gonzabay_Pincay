@@ -9,6 +9,8 @@ import Modelo.IncompleteStageException;
 import Modelo.Sabor;
 import Modelo.Topping;
 import Modelo.windowDialog;
+import Utilidades.Utilidades;
+import Utilidades.popupWindows;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,9 +25,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -51,6 +50,9 @@ public class PedidoController implements Initializable {
     @FXML
     private Button btnConfirmar;
     
+    @FXML
+    private Button btnCancelarPedido;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -61,19 +63,25 @@ public class PedidoController implements Initializable {
         
         btnEliminar.addEventHandler(ActionEvent.ACTION, e->{
             if(LVpedido.getSelectionModel().getSelectedItem() == null) return;
-            makeWindowDialog((s)->{
+            popupWindows.makeWindowDialog((s)->{
                 try {
                     RemoveElemento(s);
                 } catch (IncompleteStageException ex) {
-                    System.out.println(ex);
+                    popupWindows.makeWindowEmer(ex.getMessage());
                 }
             }, "Esta seguro que desea eliminar el elemento");
         });
         
         btnConfirmar.addEventHandler(ActionEvent.ACTION, e->{
-            makeWindowDialog((s)->{
+            popupWindows.makeWindowDialog((s)->{
                 addPedido(s);
             }, "Esta seguro de que desea confirmar el pedido");
+        });
+        
+        btnCancelarPedido.addEventHandler(ActionEvent.ACTION, e->{
+            popupWindows.makeWindowDialog((s)->{
+                removePedido(s);
+            }, "Esta seguro de que desea eliminar el pedido :(");
         });
     }
 
@@ -83,41 +91,7 @@ public class PedidoController implements Initializable {
      * de la interfaz windowDialog
      * @param dialog objeto que implemente la interfaz
      */
-    private void makeWindowDialog(windowDialog dialog, String msg){
-        Stage stageDialog = new Stage();
-        VBox contParent = new VBox();
-        contParent.setAlignment(Pos.CENTER);
-        contParent.getStyleClass().add("mainFxmlClass");
-        contParent.getStylesheets().add("styles/pedidos.css");
-        
-        Label lbMensaje = new Label(msg);
-        lbMensaje.getStyleClass().add("lblMensajeDialog");
-        
-        HBox vonBotones = new HBox();
-        vonBotones.setMinHeight(125);
-        vonBotones.setSpacing(20);
-        vonBotones.setAlignment(Pos.CENTER);
-        Button btnAceptar = new Button("Aceptar");
-        Button btnCancelar = new Button("Cancelar");
-        
-        btnCancelar.setOnAction(e->{
-            stageDialog.close();
-        });
-        
-        btnAceptar.setOnAction(e->{
-            dialog.start(stageDialog);
-        });
-        
-        vonBotones.getChildren().addAll(btnAceptar, btnCancelar);
-        contParent.getChildren().addAll(lbMensaje, vonBotones);
-        
-        Scene scene = new Scene(contParent, 350, 250);
-        stageDialog.setScene(scene);
-        stageDialog.setResizable(false);
-        stageDialog.initModality(Modality.APPLICATION_MODAL);
-        stageDialog.show();
-        
-    }
+   
     
     private void RemoveElemento(Stage stage) throws IncompleteStageException{
         String selTipo = ((String)LVpedido.getSelectionModel().getSelectedItem()).split(": ")[0];
@@ -210,6 +184,15 @@ public class PedidoController implements Initializable {
         
         BienvenidaController.stagePedidos.setScene(new Scene(rootNew, ancho,alto));
        
+        
+    }
+    
+    private void removePedido(Stage stage){
+        //Se  elimina el pedido
+        App.heladoPedido = new Helado();
+        App.heladoPedido.setUsuario(App.userLogin);
+        stage.close();
+        BienvenidaController.stagePedidos.close();
         
     }
     

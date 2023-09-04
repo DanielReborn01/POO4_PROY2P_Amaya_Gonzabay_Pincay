@@ -68,7 +68,7 @@
                   <Insets bottom="30.0" right="30.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" styleClass="mainFxmlClass" text="Cancelar">
+            <Button fx:id="btnCancelarPedido" mnemonicParsing="false" styleClass="mainFxmlClass" text="Cancelar">
                <HBox.margin>
                   <Insets bottom="30.0" />
                </HBox.margin>

@@ -6,6 +6,7 @@ package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.Base;
 import Modelo.IncompleteStageException;
+import Utilidades.popupWindows;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,9 +69,9 @@ public class BaseHeladoController implements Initializable {
             try {
                 nextScene();
             } catch (IncompleteStageException ex) {
-                ex.printStackTrace();
+                popupWindows.makeWindowEmer("Porfavor, debe seleccionar una base");
             } catch (IOException ex) {
-                ex.printStackTrace();
+                popupWindows.makeWindowEmer("Hubo un error en el sistema, vuelve a interlo mas tarde");
             }
         });
     }    

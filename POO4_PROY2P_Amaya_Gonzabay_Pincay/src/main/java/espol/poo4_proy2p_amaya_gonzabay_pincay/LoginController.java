@@ -104,7 +104,7 @@ public class LoginController implements Initializable {
     
     private void makeNewWindow(){
         Stage stagePedidos = new Stage();
-        
+        stagePedidos.setAlwaysOnTop(true);
         
         ListView<String> LvPedidos = new ListView<>();
         Scene scena = new Scene(LvPedidos,350,250);

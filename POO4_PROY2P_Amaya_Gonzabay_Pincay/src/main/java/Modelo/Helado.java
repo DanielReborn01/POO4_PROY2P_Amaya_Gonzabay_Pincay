@@ -43,6 +43,20 @@ public class Helado implements Serializable, Pagable{
         toppings = new ArrayList<>();
         
     }
+    
+    public static int getIndiceSave(String path, Helado helado){
+        ArrayList<String> lineas = Utilidades.LeerArchivo(path);
+        int indice = 0;
+        for (String linea : lineas) {
+            int idPedido = Integer.parseInt(linea.split(";")[0]);
+            if(helado.getId() == idPedido){
+                return indice;
+            }
+            indice ++;
+        }
+        indice = -1;
+        return indice;
+    }
 
     public int getId() {
         return id;

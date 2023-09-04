@@ -4,6 +4,7 @@
  */
 package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
+import Modelo.Helado;
 import Modelo.Pickup;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -25,14 +26,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
-
 /**
  * FXML Controller class
  *
@@ -140,6 +138,12 @@ public class BienvenidaController implements Initializable {
         
         Scene scene = new Scene(rootPedidos);
         stagePedidos.setScene(scene);
+        stagePedidos.initModality(Modality.APPLICATION_MODAL);
+        stagePedidos.setOnCloseRequest((e)->{
+            //En caso de que se cierre la ventana se reetablecera los valores
+            App.heladoPedido = new Helado();
+            App.heladoPedido.setUsuario(App.userLogin);
+        });
         stagePedidos.show();
         
     }

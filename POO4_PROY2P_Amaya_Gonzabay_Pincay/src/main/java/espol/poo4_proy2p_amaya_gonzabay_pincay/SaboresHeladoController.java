@@ -6,6 +6,7 @@ package espol.poo4_proy2p_amaya_gonzabay_pincay;
 
 import Modelo.IncompleteStageException;
 import Modelo.Sabor;
+import Utilidades.popupWindows;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -71,9 +72,9 @@ public class SaboresHeladoController implements Initializable {
             try {
                 nextPage();
             } catch (IncompleteStageException ex) {
-                System.out.println(ex);
+                popupWindows.makeWindowEmer("Porfavor, debe seleccionar al menos un sabor");
             } catch (IOException ex) {
-                System.out.println("Ocurrio un error al abrir la ventana");
+                popupWindows.makeWindowEmer("Ocurrio un error en el sistema");
             }
         });
         
