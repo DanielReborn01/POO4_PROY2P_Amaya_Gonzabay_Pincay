@@ -1,11 +1,16 @@
+Modelo\TipoPago.class
+Utilidades\popupWindows.class
 Utilidades\Utilidades.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BienvenidaController.class
 Modelo\IncompleteStageException.class
+espol\poo4_proy2p_amaya_gonzabay_pincay\PagoController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\PedidoController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BienvenidaController$2.class
+espol\poo4_proy2p_amaya_gonzabay_pincay\Main.class
 Modelo\Topping.class
 Modelo\Usuario.class
 Modelo\Pagable.class
+Modelo\IncompleteFieldsException.class
 Modelo\windowDialog.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\SaboresHeladoController.class
 Modelo\Sabor.class
@@ -14,7 +19,9 @@ espol\poo4_proy2p_amaya_gonzabay_pincay\LoginController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\ToppingController.class
 module-info.class
 Modelo\Base.class
+espol\poo4_proy2p_amaya_gonzabay_pincay\MapController.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\BaseHeladoController.class
+Modelo\Pickup.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\App.class
 espol\poo4_proy2p_amaya_gonzabay_pincay\FinalController.class
 Modelo\Helado.class

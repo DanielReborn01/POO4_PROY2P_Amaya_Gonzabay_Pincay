@@ -29,8 +29,8 @@ public class App extends Application {
     private static Scene scene;
     private static Stage stagePrincipal;
     
-    public static String pathImage = "src/main/resources/Imagenes/" ; 
-    public static String pathData = "src/main/resources/Data/";
+    public static String pathImage = "Imagenes/" ; 
+    public static String pathData = "Data/";
     public static Helado heladoPedido = new Helado();
     
     public static Format tam = Format.MEDIANO;

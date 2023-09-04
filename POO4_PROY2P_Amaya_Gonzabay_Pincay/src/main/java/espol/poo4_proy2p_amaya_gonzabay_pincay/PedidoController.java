@@ -129,6 +129,10 @@ public class PedidoController implements Initializable {
         
     }
     
+    
+    /**
+     * Actuliza la lista del pedido en caso de eliminar
+     */
     private void updateList(){
         LVpedido.getItems().clear();
         String baseNombre = App.heladoPedido.getBase().getSabor();
@@ -158,6 +162,11 @@ public class PedidoController implements Initializable {
         lblPrecioPedido.setText("Valor a pagar: " + App.heladoPedido.getPrecio());
     }
     
+    
+    /**
+     * Add un pedido a la lista y cambia la escena
+     * @param stage 
+     */
     private void addPedido(Stage stage){
         try {
             App.heladoPedido.savePedido();
@@ -187,6 +196,10 @@ public class PedidoController implements Initializable {
         
     }
     
+    /**
+     * remuevo el pedido
+     * @param stage 
+     */
     private void removePedido(Stage stage){
         //Se  elimina el pedido
         App.heladoPedido = new Helado();

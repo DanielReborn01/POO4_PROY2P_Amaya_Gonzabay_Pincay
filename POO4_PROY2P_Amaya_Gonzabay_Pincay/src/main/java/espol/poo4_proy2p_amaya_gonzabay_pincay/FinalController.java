@@ -54,7 +54,10 @@ public class FinalController implements Initializable {
  
         
     }    
-    
+    /**
+     * Muestra en el label
+     * @param contador 
+     */
     private void setText(String contador){
         Platform.runLater(()->{
             lbEspera.setText("Esta ventana se cerrará en "+contador+" segundos");

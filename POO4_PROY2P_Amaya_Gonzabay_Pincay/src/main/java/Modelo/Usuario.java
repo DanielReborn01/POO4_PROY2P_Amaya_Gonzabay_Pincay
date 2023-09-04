@@ -114,6 +114,11 @@ public class Usuario implements Serializable{
     }
    
 
+    /**
+     * Metodo equals
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -129,6 +134,11 @@ public class Usuario implements Serializable{
         return this.correo.equals(other.correo);
     }
 
+    
+    /**
+     * Metodo toString
+     * @return 
+     */
     @Override
     public String toString() {
         return nombres + "," + correo + "," + password;

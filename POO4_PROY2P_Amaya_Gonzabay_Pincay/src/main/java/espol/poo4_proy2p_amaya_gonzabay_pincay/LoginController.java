@@ -102,6 +102,9 @@ public class LoginController implements Initializable {
         
     }
     
+    /**
+     * Muesta la ventana de los pedidos
+     */
     private void makeNewWindow(){
         Stage stagePedidos = new Stage();
         stagePedidos.setAlwaysOnTop(true);

@@ -5,7 +5,7 @@
 package Modelo;
 
 /**
- *
+ * Enum sobre forma de pago
  * @author wal26
  */
 public enum TipoPago {

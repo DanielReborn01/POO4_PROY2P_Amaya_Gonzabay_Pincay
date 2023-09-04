@@ -122,6 +122,9 @@ public class PagoController implements Initializable {
         });
     } 
     
+    /**
+     * Actuliza los datos del pedido cuando se seleccion efectivo
+     */
     private void updateTextEfectivo(){
         txtValorPagar.setText(App.heladoPedido.getPrecio()+"");
         double preciores = 0.0;
@@ -135,6 +138,10 @@ public class PagoController implements Initializable {
         txtTotal.setText(precioTotal + "");
     }
     
+    /**
+     * Muestras los datos para llenar los campos de la tarjeta
+     * @param e 
+     */
     private void showSection(ActionEvent e){
         //Se limpia el contenedor
         contDin.getChildren().clear();
@@ -204,6 +211,11 @@ public class PagoController implements Initializable {
         
     }
     
+    
+    /**
+     * Metodo pagarPedido
+     * @throws IncompleteFieldsException 
+     */
     private void pagarPedido() throws IncompleteFieldsException{
         if(pagoGroup.getSelectedToggle() == null){
             throw new IncompleteFieldsException("No selecciono un metodo de pago");

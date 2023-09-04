@@ -21,6 +21,12 @@ public class Base implements Serializable{
     
     private String sabor;
     private double precio;
+    
+    /**
+     * Constructor de la clase base
+     * @param sabor Nombre del sabor de la base
+     * @param precio Precio del sabor
+     */
 
     public Base(String sabor, double precio) {
         this.sabor = sabor;
@@ -28,7 +34,12 @@ public class Base implements Serializable{
     }
 
     
-    
+    /**
+     * Encuentra una base dependiendo del nombre del sabor
+     * @param bases Lista de bases a buscar
+     * @param sabor Nombre del sabor de la base
+     * @return La base que se encontro, si no tiene devuelve null
+     */
     public static Base FindBase(ArrayList<Base> bases, String sabor){
         for (Base base : bases) {
             if(base.getSabor().equals(sabor)){
@@ -54,28 +65,54 @@ public class Base implements Serializable{
         return bases;
     }
     
+    /**
+     * Obtiene el sabor de la base
+     * @return Nombre del Sabor
+     */
     public String getSabor() {
         return sabor;
     }
 
+    /**
+     * Establece el sabor de la base
+     * @param sabor El nombre del sabor de la base
+     */
     public void setSabor(String sabor) {
         this.sabor = sabor;
     }
 
+    /**
+     * Obtiene el precio de la base
+     * @return Precio de la base
+     */
     public double getPrecio() {
         return precio;
     }
 
+    /**
+     * Establece el precio de la base
+     * @param precio 
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    
+    /**
+     * Metodo sobreescrito toSrting
+     * @return 
+     */
     @Override
     public String toString() {
         return sabor + "," + precio;
     }
 
 
+    /**
+     * Metodo equals
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

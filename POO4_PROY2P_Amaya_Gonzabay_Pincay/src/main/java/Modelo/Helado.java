@@ -32,6 +32,9 @@ public class Helado implements Serializable, Pagable{
     private int id;
     
 
+    /**
+     * Base del pedido/Heladp
+     */
     public Helado() {
         try {
             SecureRandom number = SecureRandom.getInstance("SHA1PRNG");
@@ -44,6 +47,12 @@ public class Helado implements Serializable, Pagable{
         
     }
     
+    /**
+     * Obtine el indice del archivo donde se guardan los pedidos
+     * @param path Fichero donde se guarda los archivos
+     * @param helado Helado a buscar
+     * @return el indice de la linea donde esta escrtito, devuelve menos 1 si no se encuentra
+     */
     public static int getIndiceSave(String path, Helado helado){
         ArrayList<String> lineas = Utilidades.LeerArchivo(path);
         int indice = 0;
@@ -58,17 +67,28 @@ public class Helado implements Serializable, Pagable{
         return indice;
     }
 
+    /**
+     * Obtiene el id del pedido
+     * @return id
+     */
     public int getId() {
         return id;
     }
     
     
-    
+    /**
+     * Obtiene la base del pedido
+     * @return base
+     */
     public Base getBase() {
         
         return base;
     }
 
+    /**
+     * Establece la base del pedido
+     * @param base Base a escoger
+     */
     public void setBase(Base base) {
         if(this.base != null){
             precio -= this.base.getPrecio();
@@ -78,18 +98,35 @@ public class Helado implements Serializable, Pagable{
         this.base = base;
     }
 
+    /**
+     * Obtiene el usuario
+     * @return 
+     */
     public Usuario getUsuario() {
         return usuario;
     }
+    
+    /**
+     * Establece el usuario 
+     * @param usuario 
+     */
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
+    /**
+     * Establece el primer sabor del pedido
+     * @return 
+     */
     public Sabor getSabor1() {
         return sabor1;
     }
 
+    /**
+     * Establece el segundo valor del pedido
+     * @param sabor1 
+     */
     public void setSabor1(Sabor sabor1) {
         if(this.sabor1 != null){
             precio -= this.sabor1.getPrecio();
@@ -102,10 +139,19 @@ public class Helado implements Serializable, Pagable{
         this.sabor1 = sabor1;
     }
     
+    
+    /**
+     * Se obtiene el primer valor del pedido
+     * @return 
+     */
     public Sabor getSabor2() {
         return sabor2;
     }
 
+    /**
+     * Establece el segundo valor del pedido
+     * @param sabor2 
+     */
     public void setSabor2(Sabor sabor2) {
         if(this.sabor2 != null){
             precio -= this.sabor2.getPrecio();
@@ -118,20 +164,38 @@ public class Helado implements Serializable, Pagable{
         this.sabor2 = sabor2;
     }
     
+    
+    /**
+     * Add el topping a la lista 
+     * @param topping 
+     */
     public void addTopping(Topping topping){
         precio += topping.getPrecio();
         toppings.add(topping);
     }
     
+    /**
+     * Remueve el topping
+     * @param topping 
+     */
     public void removeTopping(Topping topping){
         precio -= topping.getPrecio();
         toppings.remove(topping);
     }
 
+    
+    /**
+     * Obtine la lista de toppings
+     * @return 
+     */
     public ArrayList<Topping> getToppings() {
         return toppings;
     }
 
+    /**
+     * Guarda el pedido
+     * @throws IOException 
+     */
     public void savePedido() throws IOException{
         //Se guarda en el archivo pedido
         
@@ -145,18 +209,30 @@ public class Helado implements Serializable, Pagable{
         ob.flush();
     }
 
+    /**
+     * Metodo toString
+     * @return 
+     */
     @Override
     public String toString() {
         return id+";"+usuario.getNombres()+";"+precio;
     }
     
     
-    
+    /**
+     * Obtiene el precio del pedido
+     * @return 
+     */
 
     public double getPrecio() {
         return precio;
     }
 
+    
+    /**
+     * Genera la transacion, de la interfaz pagable
+     * @param tipoPago 
+     */
     @Override
     public void generarTransaccion(TipoPago tipoPago) {
         //Se guardara la informacion del pago

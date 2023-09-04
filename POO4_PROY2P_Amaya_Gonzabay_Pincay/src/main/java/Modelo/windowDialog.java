@@ -7,7 +7,7 @@ package Modelo;
 import javafx.stage.Stage;
 
 /**
- *
+ * Interfaz sobre el metodo a relizar luego de cerrar la accion
  * @author wal26
  */
 public interface windowDialog {

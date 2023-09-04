@@ -80,6 +80,10 @@ public class SaboresHeladoController implements Initializable {
         
     }    
     
+    /**
+     * Escoge el sabor seleccionado
+     * @param combo 
+     */
     private void choiceSabor(ComboBox combo){
         
         String sabor = combo.getSelectionModel().getSelectedItem().toString().split(" - ")[0];
@@ -99,6 +103,12 @@ public class SaboresHeladoController implements Initializable {
         
     }
     
+    
+    /**
+     * Pasa la escena sigueitne
+     * @throws IncompleteStageException
+     * @throws IOException 
+     */
     private void nextPage() throws IncompleteStageException, IOException{
         //Valida que se haya escogido el comboBox
         System.out.println(cbSabor1.getValue());

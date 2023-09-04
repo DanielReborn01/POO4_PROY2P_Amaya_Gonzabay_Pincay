@@ -5,7 +5,7 @@
 package Modelo;
 
 /**
- *
+ * Interfaz pagable
  * @author wal26
  */
 public interface Pagable {

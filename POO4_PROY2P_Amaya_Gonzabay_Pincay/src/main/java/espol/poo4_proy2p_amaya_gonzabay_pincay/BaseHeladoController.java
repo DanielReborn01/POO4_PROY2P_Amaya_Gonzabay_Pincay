@@ -77,6 +77,10 @@ public class BaseHeladoController implements Initializable {
     }    
     
     
+    /**
+     * Add los sabores 
+     * @throws FileNotFoundException 
+     */
     private void addSabores() throws FileNotFoundException{
         HBox contenedor = new HBox();
         contenedor.getStyleClass().add("cont-padre");
@@ -137,6 +141,11 @@ public class BaseHeladoController implements Initializable {
         lblPrecio.setText("Valor a pagar: " + Double.toString(precioBase));
     }
     
+    /**
+     * Muestra la siguiente escena
+     * @throws IncompleteStageException
+     * @throws IOException 
+     */
     private void nextScene() throws IncompleteStageException, IOException{
         if(App.heladoPedido.getBase() == null){
             throw new IncompleteStageException("No se selecciono una base");

@@ -48,33 +48,54 @@ public class Sabor implements Serializable {
         return sabores;
     }
 
+    /**
+     * Obtiene el nombre del sabor
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Establece el nombre 
+     * @param nombre 
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    
+    /**
+     * Obtiene el precio
+     * @return 
+     */
     public double getPrecio() {
         return precio;
     }
 
+    /**
+     * Establece el precio
+     * @param precio 
+     */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
 
+    
+    /**
+     * Metodo toString
+     * @return 
+     */
     @Override
     public String toString() {
         return nombre + " - " + precio;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
-
+    /**
+     * Metodo equals
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

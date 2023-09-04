@@ -77,6 +77,11 @@ public class ToppingController implements Initializable {
         });
     }    
     
+    
+    /**
+     * Escogen el topping
+     * @param checkTopping 
+     */
     private void choiceTopping(CheckBox checkTopping){
         
         //Obtener el topping 
@@ -94,6 +99,10 @@ public class ToppingController implements Initializable {
        
     }
     
+    /**
+     * Cambia la escena
+     * @throws IOException 
+     */
     private void changeScene() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/fxml/pedido" + ".fxml"));
         Parent rootNew = fxmlLoader.load();

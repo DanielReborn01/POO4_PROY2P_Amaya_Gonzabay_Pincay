@@ -15,10 +15,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- *
+ * Ventanas emergentes
  * @author wal26
  */
 public class popupWindows {
+    
+    /**
+     * Crear una ventana Dialog
+     * @param dialog Metodo a realizar
+     * @param msg 
+     */
      public static void makeWindowDialog(windowDialog dialog, String msg){
         Stage stageDialog = new Stage();
         VBox contParent = new VBox();
@@ -55,6 +61,11 @@ public class popupWindows {
         
     }
      
+     
+     /**
+      * Crea una ventana emergentes
+      * @param msg 
+      */
      public static void makeWindowEmer(String msg){
         Stage stageDialog = new Stage();
         stageDialog.setTitle("ERROR");

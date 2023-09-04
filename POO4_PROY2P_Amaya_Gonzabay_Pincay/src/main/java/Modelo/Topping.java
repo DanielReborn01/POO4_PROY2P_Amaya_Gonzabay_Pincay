@@ -17,6 +17,12 @@ public class Topping implements Serializable{
     private String nombre;
     private double precio;
     
+    /**
+     * Constructor de los toppings
+     * @param toppings
+     * @param nombre
+     * @return 
+     */
     public static Topping FindTopping(ArrayList<Topping> toppings, String nombre){
         for (Topping top : toppings) {
             if(top.getNombre().equals(nombre)){
@@ -26,6 +32,12 @@ public class Topping implements Serializable{
         return null;
     }
     
+    
+    /**
+     * Obtiene los objetos topping de un archivo
+     * @param ruta
+     * @return 
+     */
     public static ArrayList<Topping> toppings(String ruta){
         ArrayList<Topping> sabores = new ArrayList<>();
         ArrayList<String[]> datToppings = Utilidades.LeerValidando(ruta, false);
@@ -36,30 +48,44 @@ public class Topping implements Serializable{
         return sabores;
     }
 
+    //Constructor del topping
     public Topping(String nombre, double precio) {
         this.nombre = nombre;
         this.precio = precio;
     }
 
+    /**
+     * Obtiene el nombre del topping
+     * @return 
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * Obtinee el precio del topping
+     * @return 
+     */
     public double getPrecio() {
         return precio;
     }
 
+    
+    /**
+     * Metodo toString
+     * @return 
+     */
     @Override
     public String toString() {
         return nombre + " - " + precio;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
-    }
 
+    /**
+     * Metodo equals
+     * @param obj
+     * @return 
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

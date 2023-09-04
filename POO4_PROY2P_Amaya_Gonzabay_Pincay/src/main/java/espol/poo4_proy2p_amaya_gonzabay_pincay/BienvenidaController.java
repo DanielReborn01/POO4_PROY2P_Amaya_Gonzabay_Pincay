@@ -85,6 +85,11 @@ public class BienvenidaController implements Initializable {
 
     }
     
+    /**
+     * Muestra todos los pickups
+     * @param root
+     * @param stage 
+     */
     private void showPickup(Parent root, Stage stage){
         Pane pa = (Pane) root;
         
@@ -130,7 +135,8 @@ public class BienvenidaController implements Initializable {
     }
 
     /**
-     * Se encarara de crear la ventana donde se podra realizar el pedido
+     *  Se encarara de crear la ventana donde se podra realizar el pedido
+     * @throws IOException 
      */
     private void makeWindowPedidos() throws IOException {
         stagePedidos = new Stage();
@@ -148,6 +154,11 @@ public class BienvenidaController implements Initializable {
         
     }
 
+    /**
+     * Muestra los popUps
+     * @param pickup
+     * @param root 
+     */
     private void showPopUp(Pickup pickup, Pane root){
         VBox cont = new VBox();
         String contSytle = "-fx-background-color: rgb(247,224,156);"
