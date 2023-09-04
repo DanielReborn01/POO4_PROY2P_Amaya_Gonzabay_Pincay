@@ -9,50 +9,30 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BienvenidaController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" styleClass="mainFxmlClass" stylesheets="@../styles/pedidos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BienvenidaController">
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="90.0" prefWidth="600.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/borde.png" />
-               </image>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/borde.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Imagenes/borde.png" />
-               </image>
-            </ImageView>
-         </children>
+      <HBox maxHeight="75.0" prefHeight="58.0" styleClass="bckHelado">
          <padding>
             <Insets top="-8.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="316.0" prefWidth="600.0">
+      <HBox alignment="CENTER" prefHeight="316.0" prefWidth="600.0">
          <children>
-            <VBox prefHeight="401.0" prefWidth="309.0">
+            <VBox alignment="CENTER" prefHeight="401.0" prefWidth="309.0" spacing="25.0">
                <children>
                   <Label text="Bienvenido/a, ">
                      <font>
-                        <Font name="System Italic" size="24.0" />
+                        <Font name="System Bold Italic" size="28.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnLocales" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Encuentra nuestros locales">
+                  <Button fx:id="btnLocales" maxWidth="200.0" mnemonicParsing="false" styleClass="btns" stylesheets="@../styles/login.css" text="Encuentra nuestros locales">
                      <VBox.margin>
-                        <Insets bottom="20.0" left="60.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnPedidos" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Haz tu pedido">
+                  <Button fx:id="btnPedidos" maxWidth="200.0" mnemonicParsing="false" styleClass="btns" stylesheets="@../styles/login.css" text="Haz tu pedido">
                      <VBox.margin>
-                        <Insets bottom="20.0" left="60.0" top="20.0" />
+                        <Insets />
                      </VBox.margin>
                   </Button>
                </children>

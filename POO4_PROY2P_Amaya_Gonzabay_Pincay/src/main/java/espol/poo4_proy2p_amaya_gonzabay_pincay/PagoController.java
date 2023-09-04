@@ -99,7 +99,7 @@ public class PagoController implements Initializable {
                 try {
                     pagarPedido();
                 } catch (IncompleteFieldsException ex) {
-                    System.out.println(ex);
+                    popupWindows.makeWindowEmer(ex.getMessage());
                 }
                 s.close();
             }, "Esta seguro de confirmar el pago");

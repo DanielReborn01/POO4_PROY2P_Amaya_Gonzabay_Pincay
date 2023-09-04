@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass"  stylesheets="@../styles/pedidos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BaseHeladoController">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/pedidos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.BaseHeladoController">
    <children>
       <HBox prefHeight="74.0" prefWidth="600.0">
          <children>
@@ -45,19 +45,19 @@
             </Label>
          </children></HBox>
       <HBox fx:id="hbBases" alignment="TOP_CENTER" prefHeight="133.0" prefWidth="600.0" VBox.vgrow="ALWAYS" />
-      <HBox layoutX="10.0" layoutY="327.0" prefHeight="55.0" prefWidth="600.0">
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="327.0" spacing="300.0" VBox.vgrow="ALWAYS">
          <children>
             <Label fx:id="lblPrecio" text="Valor a pagar: ">
                <font>
-                  <Font name="System Italic" size="14.0" />
+                  <Font name="System Bold Italic" size="16.0" />
                </font>
                <HBox.margin>
-                  <Insets left="60.0" top="20.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
-            <Button fx:id="btnNextBase" mnemonicParsing="false" styleClass="mainFxmlClass" text="Continuar">
+            <Button fx:id="btnNextBase" mnemonicParsing="false" styleClass="btns" text="Continuar">
                <HBox.margin>
-                  <Insets left="300.0" top="20.0" />
+                  <Insets />
                </HBox.margin>
             </Button>
          </children></HBox>

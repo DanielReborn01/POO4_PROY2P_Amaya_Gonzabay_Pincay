@@ -36,7 +36,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-scale-y: 1.1;
     -fx-cursor: hand;
 }
+/**BIENVENIDO**/
 
+.bckHelado{
+    -fx-background-image: url('../Imagenes/borde.png');
+    -fx-background-size: 300 80;
+    -fx-background-repeat: repeat;
+}
+
+.btns{
+    -fx-background-color: #ffa931;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+    -fx-text-fill: white;
+    -fx-padding: 10 5 10 5;
+     -fx-font-family: "'Handjet', cursive";
+     
+}
 
 /**PEDIDOS**/
 

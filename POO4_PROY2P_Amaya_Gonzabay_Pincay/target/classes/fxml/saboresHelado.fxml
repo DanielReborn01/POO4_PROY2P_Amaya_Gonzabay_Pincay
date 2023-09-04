@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.SaboresHeladoController" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="espol.poo4_proy2p_amaya_gonzabay_pincay.SaboresHeladoController">
    <children>
       <HBox prefHeight="46.0" prefWidth="600.0">
          <children>
@@ -34,14 +34,14 @@
             <Insets top="-8.0" />
          </VBox.margin>
       </HBox>
-      <HBox prefHeight="25.0" prefWidth="600.0">
+      <HBox alignment="CENTER">
          <children>
-            <Label  text="Paso 2: Elige el sabor de helado">
+            <Label text="Paso 2: Elige el sabor de helado">
                <font>
                   <Font name="System Italic" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="60.0" />
+                  <Insets />
                </HBox.margin>
             </Label>
          </children></HBox>
@@ -63,7 +63,10 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-         </children></HBox>
+         </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="20.0" />
+         </VBox.margin></HBox>
       <HBox alignment="TOP_CENTER" prefHeight="98.0" prefWidth="600.0">
          <children>
             <ComboBox fx:id="cbSabor1" prefWidth="150.0">
@@ -79,8 +82,11 @@
                <HBox.margin>
                   <Insets bottom="40.0" right="300.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
             </Label>
-            <Button fx:id="btnSaboresContinuar" mnemonicParsing="false" styleClass="mainFxmlClass" stylesheets="@../styles/login.css" text="Continuar">
+            <Button fx:id="btnSaboresContinuar" mnemonicParsing="false" styleClass="btns" stylesheets="@../styles/pedidos.css" text="Continuar">
                <HBox.margin>
                   <Insets bottom="40.0" />
                </HBox.margin>
