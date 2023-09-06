@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author wal26
  */
-public class Sabor implements Serializable {
+public class Sabor implements Serializable, Comparable<Sabor> {
     private String nombre;
     private double precio;
 
@@ -109,6 +109,11 @@ public class Sabor implements Serializable {
         }
         final Sabor other = (Sabor) obj;
         return nombre.equals(other.getNombre());
+    }
+
+    @Override
+    public int compareTo(Sabor o) {
+        return this.nombre.compareTo(o.getNombre());
     }
     
     

@@ -9,8 +9,10 @@ import Modelo.IncompleteFieldsException;
 import Modelo.TipoPago;
 import Utilidades.Utilidades;
 import Utilidades.popupWindows;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -111,7 +113,7 @@ public class PagoController implements Initializable {
                 BienvenidaController.stagePedidos.close();
                 int indice = Helado.getIndiceSave(App.pathData + "pedidos.txt", App.heladoPedido);
                 Utilidades.EliminarLinea(App.pathData + "pedidos.txt", (indice + 1));
-                
+                //Asi mismo se elimina el archivo 
                 App.heladoPedido = new Helado();
                 App.heladoPedido.setUsuario(App.userLogin);
                 

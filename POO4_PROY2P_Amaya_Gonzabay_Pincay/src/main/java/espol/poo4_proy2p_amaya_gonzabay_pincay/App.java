@@ -17,8 +17,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import static javafx.application.Application.launch;
 import javafx.application.Platform;
+import javafx.print.Collation;
 import javafx.scene.image.Image;
 
 /**
@@ -48,7 +50,9 @@ public class App extends Application {
         //Se cargaran todos los datos
         usuarios = Usuario.usuarios(pathData+"usuarios.txt");
         bases = Base.Bases(pathData+"bases.txt");
+        Collections.sort(bases);
         sabores = Sabor.sabores(pathData + "sabores.txt");
+        Collections.sort(sabores);
         toppings = Topping.toppings(pathData + "toppings.txt");
         pickups = Pickup.pickup(pathData + "locales.txt");
     }

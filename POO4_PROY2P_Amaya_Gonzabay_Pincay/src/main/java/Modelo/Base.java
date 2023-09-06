@@ -17,7 +17,7 @@ import java.util.Objects;
  * 
  * @author wal26
  */
-public class Base implements Serializable{
+public class Base implements Serializable, Comparable<Base>{
     
     private String sabor;
     private double precio;
@@ -126,6 +126,11 @@ public class Base implements Serializable{
         }
         final Base other = (Base) obj;
         return sabor.equals(other.getSabor());
+    }
+
+    @Override
+    public int compareTo(Base o) {
+        return this.sabor.compareTo(o.getSabor());
     }
     
     
